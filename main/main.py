@@ -6,8 +6,8 @@ import sys
 # Group size is 4
 groupSize = 4
 
-# Student Groups
-groups = {}
+#Student Groups list
+studentGroups = []
 
 # Check if there is a CSV file with the list of students and their preferences
 if len(sys.argv) < 2:
@@ -76,25 +76,21 @@ for df in gradeGenderDfs:
                     (10 - (prefs.index(pref) * 3)),
                 )
             else:
-                print(f"Student has no preference or is the same as the prefrence: {pref}")
-
-    # Saving the preference matrix
-    np.savetxt("Data.csv", studentPrefMatrix, delimiter=",", fmt="%d")
+                print(f"{student} has no preference {prefs.index(pref)+1} or is the same as the prefrence: {pref}")
 
     # Running Irving's algorithm
     matching = Matching(
         studentPrefMatrix, group_size=groupSize, iter_count=2, final_iter_count=2
     )
     score, studentIdxs = matching.solve()
-    # print(score)
+    print(f"Irving's Algorithm Score for {df.name}: {score}")
 
     # Converting list of student indexes to list of student names
-    studentGroups = []
     for group in studentIdxs:
         studentGroup = []
         for studentIdx in group:
-            studentGroup.append("%s" % (df.iloc[studentIdx]["Full Name"]))
+            studentGroup.append("Full Name: %s, Gender: %s, Grade: %s" % (df.iloc[studentIdx]["Full Name"], df.iloc[studentIdx]["Gender"], df.iloc[studentIdx]["Grade"]))
         studentGroups.append(studentGroup)
-    groups[df.name] = studentGroups
 
-print(groups)
+df = pd.DataFrame(data=studentGroups)
+df.to_csv('rooms.csv',index=True, header=False)
