@@ -1,0 +1,8 @@
+Timestamp,Email Address,Full Name,Roomate Preference #1 Email,Roomate Preference #2 Email,Roomate Preference #3 Email,Gender,Grade
+5/31/2022 12:01:29,frank@gmail.com,Frank,russell@gmail.com,b@gmail.com,a@gmail.com,Male,10
+1,russell@gmail.com,Russell,frank@gmail.com,a@gmail.com,b@gmail.com,Male,9
+2,a@gmail.com,A,russell@gmail.com,frank@gmail.com,b@gmail.com,Male,9
+3,b@gmail.com,B,a@gmail.com,russell@gmail.com,frank@gmail.com,Male,10
+4,bob@gmail.com,Bob,mack@gmail.com,zillo@gmail.com,,Male,11
+5,mack@gmail.com,Mack,bob@gmail.com,zillo@gmail.com,,Male,12
+6,zillo@gmail.com,Zillo,zillo@gmail.com,,,Male,12
