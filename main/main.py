@@ -75,6 +75,8 @@ for df in gradeGenderDfs:
                     ),
                     (10 - (prefs.index(pref) * 3)),
                 )
+            else:
+                print(f"Student has no preference or is the same as the prefrence: {pref}")
 
     # Saving the preference matrix
     np.savetxt("Data.csv", studentPrefMatrix, delimiter=",", fmt="%d")
