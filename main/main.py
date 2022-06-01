@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 from algorithm import Matching, Group
 import sys
-import rich
 
 # Group size is 4
 groupSize = 4
@@ -12,9 +11,8 @@ groups = {}
 
 # Check if there is a CSV file with the list of students and their preferences
 if len(sys.argv) < 2:
-    studentsDf = pd.read_csv("./main/preferences.csv", header=0)
-    # print("Please input a CSV file with students and their preferences.")
-    # sys.exit()
+    print("Please input a CSV file with students and their preferences.")
+    sys.exit()
 else:
     # Import the list of students as a Pandas dataframe
     studentsDf = pd.read_csv(sys.argv[1], header=0)
